@@ -25,6 +25,14 @@ function InputFile() {
     navigator.clipboard.writeText(inputArea.value);
   };
 
+  const handleReverse = () => {
+    const ReverseArea = document.getElementById("inputArea").value;
+    let myarr = ReverseArea.split("");
+    myarr.reverse();
+    let newText = myarr.join("");
+    Settext(newText);
+  };
+
   const handleClear = () => {
     Settext("");
   };
@@ -37,7 +45,8 @@ function InputFile() {
       <div className="w-full max-w-4xl bg-white rounded-lg shadow-2xl p-8">
         {/* Title */}
         <h1 className="text-3xl font-semibold text-gray-800 mb-6 text-center">
-          <span className="text-indigo-600">TextUtils</span> - Text Manipulation Tool
+          <span className="text-indigo-600">TextUtils</span> - Text Manipulation
+          Tool
         </h1>
 
         {/* Input Area */}
@@ -68,6 +77,12 @@ function InputFile() {
             className="bg-yellow-600 text-white py-2 px-4 rounded-lg shadow hover:bg-yellow-500 focus:ring-2 focus:ring-yellow-400"
           >
             Trim
+          </button>
+          <button
+            onClick={handleReverse}
+            className="bg-pink-600 text-white py-2 px-4 rounded-lg shadow hover:bg-pink-500 focus:ring-2 focus:ring-pink-400"
+          >
+            Reverse Text
           </button>
           <button
             onClick={handleCopy}
